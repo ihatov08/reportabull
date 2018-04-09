@@ -22,7 +22,30 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+
+require 'reportabull'
+
+class Sample
+  include Reportabull
+
+  User = Struct.new(:name, :email)
+
+  def self.find_collection
+    (1..10).to_a.map.with_index{ |m, i| User.new("user_#{i}", "user_#{i}@example.com") }
+  end
+
+  columns do
+    column(:name)
+    column(:email)
+  end
+end
+
+Sample.to_csv
+=> "Name,Email\nuser_0,user_0@example.com\nuser_1,user_1@example.com\nuser_2,user_2@example.com\nuser_3,user_3@example.com\nuser_4,user_4@example.com\nuser_5,user_5@example.com\nuser_6,user_6@example.com\nuser_7,user_7@example.com\nuser_8,user_8@example.com\nuser_9,user_9@example.com\n"
+[
+
+```
 
 ## Development
 
