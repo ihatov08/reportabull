@@ -2,6 +2,8 @@
 
 require 'reportabull/csv_builder'
 require 'reportabull/builder'
+require 'active_support'
+require 'active_support/core_ext'
 
 module Reportabull
   class ReportBuilder
@@ -47,7 +49,7 @@ module Reportabull
 
     def exec_columns
       @columns = []
-      instance_exec(&@block) if @block
+      instance_exec(&@block) if @block.present?
       columns
     end
   end
