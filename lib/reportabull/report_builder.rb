@@ -16,7 +16,7 @@ module Reportabull
       @columns = []
       @options = options
       @block = block
-      @humanize_names = options.delete(:humanize_name)
+      @humanize_name = options.delete(:humanize_name)
     end
 
     def csv_options
